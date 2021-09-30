@@ -10,10 +10,10 @@ def build_production_dict(productions, production_type, weight):
 	production_df = pd.DataFrame(production_dict)
 	production_df['Tipo de Produção'] = production_type
 	production_df['Peso'] = weight
-	production_df['Aprovado(a)'] = 0
+	production_df['Comprovado'] = 0
 	production_df['Pontos'] = ''
 
-	production_df = production_df[['Tipo de Produção', 'Título', 'Peso', 'Aprovado(a)', 'Pontos']]  # Rearrange columns
+	production_df = production_df[['Tipo de Produção', 'Título', 'Peso', 'Comprovado', 'Pontos']]  # Rearrange columns
 	
 	return production_df
 
@@ -98,27 +98,3 @@ for file in os.listdir('Resumes'):
 excel = Excel(innovation_productions)
 excel.build_file()
 excel.save('inovações.xlsx')
-# =======================================================================================================
-
-
-	# publications = []
-
-	# innovations = xml_file.findall(".//*[@FLAG-POTENCIAL-INOVACAO='SIM']")
-	# for publication in innovations:
-	# 	publication_type = publication.tag
-	# 	if "dados-basicos" in publication_type.lower():
-	# 		re.findall(r'DADOS-BASICOS-D.{,2}-', publication_type)[0]
-	# 		publication_type = re.sub(r'DADOS-BASICOS-D.{,2}-', '', publication_type).title()
-	# 	else:
-	# 		publication_type = publication_type.replace('-', ' ').title()
-	# 		publication_type = publication_type.replace('De', 'de')
-	# 		publication_type = publication_type.replace('E', 'e')
-		
-	# 	publications.append(publication_type)
-
-	# values, counts = np.unique(publications, return_counts=True)
-	# publications_counts = {'Tipo de Publicação': list(values), 'Quantidade': list(counts)}
-
-	# publications_counts_df = pd.DataFrame(publications_counts)
-	# print(publications_counts_df)
-
